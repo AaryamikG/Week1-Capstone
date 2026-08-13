@@ -6,10 +6,11 @@ You will consume an API and render it using React. The Figma design and user sto
 
 #### Setup
 
-Clone this repo and `cd` into it:
+Clone this repo into a new `unit-01-capstone` directory and `cd` into it:
 
 ```bash
-cd unit1-capstone
+git clone <repo-url> unit-01-capstone
+cd unit-01-capstone
 ```
 
 Remove the existing git history and start your own repo:
@@ -25,11 +26,11 @@ Then add a GitHub remote to the local repo.
 
 #### Setup Backend
 
-See the [backend commands reference](./backend/README.md).
+See the [backend commands reference](./backend/readme.md).
 
 #### Consult Design Docs
 
-See the [design docs](./DESIGN.md).
+See the [design docs](./design.md).
 
 #### Build the React Frontend
 
@@ -43,7 +44,7 @@ Match the Figma design: strive for a pixel-perfect implementation of the provide
 
 Component testing: write tests for at least four different UI components.
 
-See the [React client command reference](./client/README.md).
+See the [React client command reference](./client/readme.md).
 
 #### Deploy Your Application
 
