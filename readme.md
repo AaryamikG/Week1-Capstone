@@ -60,15 +60,17 @@ Complete all of the following to hit the baseline requirement for this capstone:
 - React app calls all endpoints.
 - Routing set up for major components.
 - Responsive CSS and Flexbox design.
-- Pixel-perfect Figma implementation.
-- Four or more tested React components.
+- Pixel-perfect Figma implementation including mobile, tablet, and desktop.
+- every react component tested.
+- All helper functions, login, signup, logout functions unit tested.
+- playwright end-to-end tests
 - Deployed, working app with a public URL.
 
 #### Stretch Goals
 
 Complete one stretch goal for the mid-tier bonus, or both for the top tier:
 
-- Add Playwright end-to-end tests.
+- Use the context api, useReducer.  
 - Set up GitHub Actions or other CI/CD for automated builds and tests.
 
 #### Tips for Success
