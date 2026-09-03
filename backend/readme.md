@@ -7,7 +7,7 @@ This directory contains the backend server for the Spoonful application.
 To start the backend services, run the following command. This will build the Docker images and start the containers in detached mode.
 
 ```bash
-docker compose -f docker-compose.dev.yml up --build
+docker compose -f docker-compose.dev.yml up --build -d
 ```
 
 Use this command when you want to start the backend server for the first time or when you have made changes to the Dockerfile or the backend code.
