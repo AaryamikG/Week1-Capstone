@@ -7,7 +7,7 @@ This directory contains the backend server for the Spoonful application.
 To start the backend services, run the following command. This will build the Docker images and start the containers in detached mode.
 
 ```bash
-docker-compose -f docker-compose.dev.yml up --build
+docker compose -f docker-compose.dev.yml up --build
 ```
 
 Use this command when you want to start the backend server for the first time or when you have made changes to the Dockerfile or the backend code.
@@ -31,13 +31,13 @@ To view the logs for a specific service, use the following commands.
 For the API service:
 
 ```bash
-docker-compose -f docker-compose.dev.yml logs -f api
+docker compose -f docker-compose.dev.yml logs -f api
 ```
 
 For the database service:
 
 ```bash
-docker-compose -f docker-compose.dev.yml logs -f mongo
+docker compose -f docker-compose.dev.yml logs -f mongo
 ```
 
 Use these commands to debug issues or monitor the output of the backend services. The `-f` flag follows the log output.
