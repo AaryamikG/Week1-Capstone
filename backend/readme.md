@@ -6,6 +6,8 @@ This directory contains the backend server for the Spoonful application.
 
 To start the backend services, run the following command. This will build the Docker images and start the containers in detached mode.
 
+###### (Depending on your environment, all docker commands may need to be preceeded by `sudo`)
+
 ```bash
 docker compose -f docker-compose.dev.yml up --build -d
 ```
@@ -14,13 +16,9 @@ Use this command when you want to start the backend server for the first time or
 
 #### Stopping the Backend
 
-To stop the backend services, press:
-
-```
-Ctrl + C
-```
-
-in the terminal where the containers are running.
+To stop the backend services, 
+1. press `docker ps` to get the list of docker processes
+2. `docker stop 1b997d` the ones you want to stop (1b997d being just an example, use the id from your `docker ps` list)
 
 Use this when you want to stop the running backend services.
 
