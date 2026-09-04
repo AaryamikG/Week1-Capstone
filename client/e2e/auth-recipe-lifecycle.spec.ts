@@ -34,7 +34,7 @@ test.describe("creator recipe lifecycle", () => {
     await expect(page.getByText("E2E Chickpea Stew (updated)")).toBeVisible();
 
     await page.getByLabel("Delete E2E Chickpea Stew (updated)").click();
-    await page.getByRole("button", { name: "Delete" }).click();
+    await page.getByRole("button", { name: "Delete", exact: true }).click();
 
     await expect(page.getByText("Recipe deleted.")).toBeVisible();
     await expect(
