@@ -12,6 +12,12 @@ node_modules/
 *.pem
 .aws/
 
+# Downloaded installers
+*.pkg
+*.msi
+*.dmg
+*.exe
+
 # Build output
 dist/
 dist-ssr/
