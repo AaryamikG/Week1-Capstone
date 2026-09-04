@@ -5,9 +5,12 @@
 node_modules/
 
 # Env files
-.env
-.env.local
-.env.*.local
+.env*
+!client/.env.example
+
+# AWS / deployment secrets
+*.pem
+.aws/
 
 # Build output
 dist/

@@ -1,0 +1,83 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Spoonful backend — a single EC2 instance running the Express API + MongoDB
+  via Docker Compose (backend/docker-compose.dev.yml), plus the security
+  group opening SSH (22) and the API port (3000).
+
+Parameters:
+  KeyName:
+    Type: AWS::EC2::KeyPair::KeyName
+    Description: Name of an existing EC2 key pair to enable SSH access.
+  LatestAmiId:
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+    Default: /aws/service/canonical/ubuntu/server/22.04/stable/current/amd64/hvm/ebs-gp2/ami-id
+    Description: Resolved automatically to the latest Ubuntu 22.04 AMI in this region.
+
+Mappings:
+  Net:
+    IDs:
+      VpcId: vpc-075fbc268a24c64f0
+      SubnetId: subnet-0da54b2b7ea0e9dd3
+
+Resources:
+  BackendSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow SSH and API traffic for the Spoonful backend
+      VpcId: !FindInMap [Net, IDs, VpcId]
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+          Description: SSH
+        - IpProtocol: tcp
+          FromPort: 3000
+          ToPort: 3000
+          CidrIp: 0.0.0.0/0
+          Description: Express API
+      Tags:
+        - Key: Name
+          Value: spoonful-backend-sg
+
+  BackendInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t3.medium
+      ImageId: !Ref LatestAmiId
+      KeyName: !Ref KeyName
+      NetworkInterfaces:
+        - DeviceIndex: 0
+          AssociatePublicIpAddress: true
+          SubnetId: !FindInMap [Net, IDs, SubnetId]
+          GroupSet:
+            - !Ref BackendSecurityGroup
+      Tags:
+        - Key: Name
+          Value: spoonful-backend
+      UserData:
+        Fn::Base64: |
+          #!/bin/bash
+          set -euxo pipefail
+
+          # Install Docker (includes the Compose plugin)
+          curl -fsSL https://get.docker.com | sh
+          usermod -aG docker ubuntu
+
+          # Fresh random JWT secret for this instance
+          JWT_SECRET=$(openssl rand -hex 16)
+
+          # Fetch the app and run the backend's existing dev compose stack
+          git clone https://github.com/AaryamikG/Week1-Capstone.git /home/ubuntu/app
+          cd /home/ubuntu/app/backend
+          echo "JWT_SECRET=${JWT_SECRET}" > .env
+
+          docker compose -f docker-compose.dev.yml up --build -d
+
+Outputs:
+  ApiURL:
+    Description: Public URL of the deployed backend API
+    Value: !Sub "http://${BackendInstance.PublicDnsName}:3000"
+  PublicDns:
+    Description: Public DNS name of the instance (for SSH and the frontend's VITE_API_URL)
+    Value: !GetAtt BackendInstance.PublicDnsName
