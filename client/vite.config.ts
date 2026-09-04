@@ -11,5 +11,9 @@ export default defineConfig({
     globals: true,
     css: true,
     exclude: ["**/node_modules/**", "**/dist/**", "e2e/**"],
+    // GitHub Actions' runner fails to spawn Vitest's default forked-process
+    // workers ("failed to start forks worker"); worker threads have lower
+    // overhead and don't hit the same restriction.
+    pool: "threads",
   },
 });
