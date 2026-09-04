@@ -6,12 +6,19 @@ services:
     ports: ["27017:27017"]
     volumes:
       - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.runCommand({ ping: 1 })"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
 
   api:
     build:
       context: ./
       dockerfile: Dockerfile
     container_name: api
+    restart: unless-stopped
     environment:
       - JWT_SECRET=my secret string
       - MONGO_URL=mongodb://mongo:27017/deloitte
@@ -20,7 +27,9 @@ services:
     volumes:
       - ./:/usr/src/app # bind-mount source
       - /usr/src/app/node_modules
-    depends_on: [mongo]
+    depends_on:
+      mongo:
+        condition: service_healthy
 
 volumes:
   mongo-data:
