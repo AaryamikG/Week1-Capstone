@@ -1,3 +1,4 @@
+import { flushSync } from "react-dom";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/useAuth";
 import Logo from "./Logo";
@@ -8,7 +9,13 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   function handleLogout() {
-    logout();
+    // Clear auth state before navigating, and force it to flush synchronously.
+    // Otherwise ProtectedRoute (still mounted on the current protected page)
+    // can react to the cleared token and redirect to /login in a race against
+    // this explicit navigate("/"), landing on whichever one settles last.
+    flushSync(() => {
+      logout();
+    });
     navigate("/");
   }
 
