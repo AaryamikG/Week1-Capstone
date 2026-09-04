@@ -1,0 +1,89 @@
+:root {
+  /* Neutrals */
+  --color-neutral-100: #ffffff;
+  --color-neutral-200: #f5f5f5;
+  --color-neutral-300: #b0b0b0;
+  --color-neutral-400: #707070;
+  --color-neutral-500: #3d3d3d;
+  --color-neutral-600: #1b1b1b;
+
+  /* Green */
+  --color-green-100: #c1e0a6;
+  --color-green-200: #96cc67;
+  --color-green-300: #6ba539;
+  --color-green-400: #57852f;
+
+  /* Red */
+  --color-red-100: #f2bcbc;
+  --color-red-200: #e36e6e;
+  --color-red-300: #c62828;
+
+  /* Yellow */
+  --color-yellow-100: #fbeabf;
+  --color-yellow-200: #f0c048;
+  --color-yellow-300: #866208;
+
+  /* Semantic */
+  --color-bg: var(--color-neutral-100);
+  --color-bg-muted: var(--color-neutral-200);
+  --color-text: var(--color-neutral-600);
+  --color-text-muted: var(--color-neutral-400);
+  --color-border: var(--color-neutral-300);
+
+  --color-primary: var(--color-green-300);
+  --color-primary-hover: var(--color-green-400);
+  --color-primary-disabled: var(--color-green-100);
+  --color-primary-contrast: var(--color-neutral-100);
+
+  --color-secondary: var(--color-yellow-100);
+  --color-secondary-hover: var(--color-yellow-200);
+  --color-secondary-contrast: var(--color-neutral-600);
+
+  --color-danger: var(--color-red-300);
+  --color-danger-hover: var(--color-red-200);
+  --color-danger-bg: var(--color-red-100);
+
+  --color-focus-bg: var(--color-yellow-100);
+  --color-focus-border: var(--color-green-300);
+
+  --font-family: "Open Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  /* Mobile-first type scale */
+  --font-size-h1: 40px;
+  --font-size-h2: 28px;
+  --font-size-h3: 20px;
+  --font-size-body: 18px;
+  --font-size-body-sm: 14px;
+
+  --weight-semibold: 600;
+  --weight-regular: 400;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  --shadow-card: 0 2px 8px rgba(27, 27, 27, 0.08);
+
+  --breakpoint-tablet: 600px;
+  --breakpoint-desktop: 1024px;
+}
+
+/* Desktop type scale kicks in at tablet+ per the provided type spec */
+@media (min-width: 768px) {
+  :root {
+    --font-size-h1: 24px;
+    --font-size-h2: 20px;
+    --font-size-h3: 18px;
+    --font-size-body: 16px;
+    --font-size-body-sm: 12px;
+  }
+}

@@ -1,0 +1,27 @@
+.recipe-form {
+  max-width: 560px;
+}
+
+.form-list-row {
+  margin-bottom: var(--space-2);
+  align-items: center;
+}
+
+.form-list-row .field-input {
+  flex: 1;
+}
+
+.form-list-qty {
+  flex: 0 0 120px !important;
+}
+
+.step-number {
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-muted);
+  min-width: 1.5em;
+}
+
+.form-actions {
+  justify-content: flex-end;
+  margin-top: var(--space-3);
+}

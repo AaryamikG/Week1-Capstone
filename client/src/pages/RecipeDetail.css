@@ -1,0 +1,46 @@
+.recipe-detail {
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-7);
+  flex: 1;
+}
+
+.recipe-detail-header {
+  display: flex;
+  gap: var(--space-6);
+  margin-top: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.recipe-detail-image {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-muted);
+}
+
+.recipe-detail-header > div {
+  flex: 1 1 260px;
+}
+
+.recipe-detail-body {
+  display: flex;
+  gap: var(--space-7);
+  margin-top: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.recipe-detail-body section {
+  flex: 1 1 260px;
+}
+
+.ingredient-list,
+.instruction-list {
+  padding-left: var(--space-5);
+}
+
+.ingredient-list li,
+.instruction-list li {
+  margin-bottom: var(--space-2);
+}

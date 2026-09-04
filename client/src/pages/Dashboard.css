@@ -1,0 +1,14 @@
+.dashboard-page {
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-7);
+  flex: 1;
+}
+
+.dashboard-header {
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.dashboard-header h1 {
+  margin: 0;
+}

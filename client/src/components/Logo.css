@@ -1,0 +1,16 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: var(--weight-semibold);
+  font-size: var(--font-size-h3);
+  color: var(--color-text);
+}
+
+.logo:hover {
+  text-decoration: none;
+}
+
+.logo-icon {
+  color: var(--color-primary);
+}

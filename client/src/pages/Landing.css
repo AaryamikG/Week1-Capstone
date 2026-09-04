@@ -1,0 +1,19 @@
+.landing {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-7);
+}
+
+.landing-hero {
+  max-width: 560px;
+}
+
+.landing-hero p {
+  color: var(--color-text-muted);
+}
+
+.landing-actions {
+  margin-top: var(--space-5);
+}
