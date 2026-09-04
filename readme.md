@@ -1,5 +1,7 @@
 # Week 1 Capstone: React Application
 
+Public URL: http://spoonful-frontend-aaryamikg.s3-website-us-east-1.amazonaws.com/dashboard
+
 #### What You'll Build
 
 You will consume an API and render it using React. The Figma design and user stories are provided. Your job is to connect the frontend to the backend and deliver a working, deployed product.
